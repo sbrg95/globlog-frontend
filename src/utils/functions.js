@@ -8,7 +8,7 @@ export const getApiUrl = () => {
 
 export const getApiRoute = (route) => {
   const apiUrl = getApiUrl();
-  return path.resolve(apiUrl, route);
+  return path.join(apiUrl, route);
 };
 
 export const formatDate = (date) => {
