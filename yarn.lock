@@ -3303,10 +3303,10 @@ cjs-module-lexer@^0.6.0:
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz"
   integrity sha512-uc2Vix1frTfnuzxxu1Hp4ktSvM3QaI4oXl4ZUqL1wjTu/BGki9TrCWoqLTg/drR1KwAEarXuRFCG2Svr1GxPFw==
 
-ckeditor5-sbrg95-custom-build@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ckeditor5-sbrg95-custom-build/-/ckeditor5-sbrg95-custom-build-0.0.2.tgz#849fd7f02cc1265963c7bba598f41055ecd9cf41"
-  integrity sha512-XxwdPo3HWQzhZU/cgq+4TgzAe202luulZx5yq0H/FGGvVIOhQdZvFuJ/AfA9BepTTqmSFzNfoOx9dX7JRoppQw==
+ckeditor5-sbrg95-custom-build@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/ckeditor5-sbrg95-custom-build/-/ckeditor5-sbrg95-custom-build-0.0.3.tgz#8d92296939f1291fa1227ecdddc6632e1e8c772d"
+  integrity sha512-mlJfxvnk24l8kcDLYwASG1c4kfUt38lLeoyOkt7UTuyOFJNHnNZ63je5d4CxQndyMtFx20wtv4wMRMHcJL7IlQ==
 
 class-utils@^0.3.5:
   version "0.3.6"
