@@ -4,10 +4,11 @@ import UserContext from '../../context/user/UserContext';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from 'ckeditor5-sbrg95-custom-build';
 import Alert from '../layout/Alert';
 import PostLoader from './PostLoader';
 import { postValidation } from '../../utils/validation';
+import { getCkeditorConfig } from '../../utils/functions';
 
 const apiUrl = process.env.API_URL || 'http://localhost:3000';
 
@@ -115,11 +116,7 @@ const EditPost = () => {
           <CKEditor
             editor={ClassicEditor}
             data={body}
-            config={{
-              simpleUpload: {
-                uploadUrl: '/api/image',
-              },
-            }}
+            config={getCkeditorConfig(apiUrl)}
             onChange={(event, editor) => {
               const data = editor.getData();
               setBody(data);

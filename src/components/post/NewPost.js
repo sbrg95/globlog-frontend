@@ -4,10 +4,11 @@ import UserContext from '../../context/user/UserContext';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from 'ckeditor5-sbrg95-custom-build';
 import Alert from '../layout/Alert';
 import PostLoader from './PostLoader';
 import { postValidation } from '../../utils/validation';
+import { getCkeditorConfig } from '../../utils/functions';
 
 const apiUrl = process.env.API_URL || 'http://localhost:3000';
 
@@ -21,6 +22,7 @@ const NewPost = () => {
     body: '',
   });
   const [alerts, setAlerts] = useState([]);
+
   useEffect(() => {
     if (!isAuthenticated) {
       history.push('/login');
@@ -93,11 +95,7 @@ const NewPost = () => {
           <CKEditor
             editor={ClassicEditor}
             data={body}
-            config={{
-              simpleUpload: {
-                uploadUrl: '/api/image',
-              },
-            }}
+            config={getCkeditorConfig(apiUrl)}
             onChange={(event, editor) => {
               const data = editor.getData();
               setPost({ ...post, body: data });
