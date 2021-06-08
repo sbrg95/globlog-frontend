@@ -5,8 +5,9 @@ import PostLoader from './PostLoader';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchPost from './SearchPost';
+import { getApiUrl } from '../../utils/functions';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const apiUrl = getApiUrl();
 
 const PostList = () => {
   const userContext = useContext(UserContext);

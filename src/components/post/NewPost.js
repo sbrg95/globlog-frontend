@@ -8,9 +8,9 @@ import ClassicEditor from 'ckeditor5-sbrg95-custom-build';
 import Alert from '../layout/Alert';
 import PostLoader from './PostLoader';
 import { postValidation } from '../../utils/validation';
-import { getCkeditorConfig } from '../../utils/functions';
+import { getApiUrl, getCkeditorConfig } from '../../utils/functions';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const apiUrl = getApiUrl();
 
 const NewPost = () => {
   const userContext = useContext(UserContext);

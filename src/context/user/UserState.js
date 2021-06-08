@@ -12,8 +12,9 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from '../types';
+import { getApiUrl } from '../../utils/functions';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const apiUrl = getApiUrl();
 
 const UserState = (props) => {
   const initialState = {

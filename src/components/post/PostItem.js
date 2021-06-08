@@ -3,9 +3,13 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { formatDate, toUpperCaseFirstChar } from '../../utils/functions';
+import {
+  getApiUrl,
+  formatDate,
+  toUpperCaseFirstChar,
+} from '../../utils/functions';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const apiUrl = getApiUrl();
 
 Modal.setAppElement('#root');
 

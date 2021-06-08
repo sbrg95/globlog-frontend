@@ -1,3 +1,9 @@
+export const getApiUrl = () => {
+  return process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_API_URL
+    : 'http://localhost:3000';
+};
+
 export const formatDate = (date) => {
   const month = new Date(date).toLocaleString('default', { month: 'long' });
   const day = new Date(date).getDate();
