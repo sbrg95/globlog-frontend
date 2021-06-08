@@ -10,7 +10,7 @@ import PostLoader from './PostLoader';
 import { postValidation } from '../../utils/validation';
 import { getCkeditorConfig } from '../../utils/functions';
 
-const apiUrl = process.env.API_URL || 'http://localhost:3000';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const EditPost = () => {
   const userContext = useContext(UserContext);

@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { formatDate, toUpperCaseFirstChar } from '../../utils/functions';
 
-const apiUrl = process.env.API_URL || 'http://localhost:3000';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 Modal.setAppElement('#root');
 

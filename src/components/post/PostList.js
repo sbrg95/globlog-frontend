@@ -6,7 +6,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchPost from './SearchPost';
 
-const apiUrl = process.env.API_URL || 'http://localhost:3000';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const PostList = () => {
   const userContext = useContext(UserContext);

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { formatDate, toUpperCaseFirstChar } from '../../utils/functions';
 import PostLoader from './PostLoader';
 
-const apiUrl = process.env.API_URL || 'http://localhost:3000';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const PostContent = () => {
   const [post, setPost] = useState({});
