@@ -1,5 +1,3 @@
-import path from 'path';
-
 export const getApiUrl = () => {
   return process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_API_URL
@@ -8,7 +6,7 @@ export const getApiUrl = () => {
 
 export const getApiRoute = (route) => {
   const apiUrl = getApiUrl();
-  return path.join(apiUrl, route);
+  return new URL(route, apiUrl).href;
 };
 
 export const formatDate = (date) => {
