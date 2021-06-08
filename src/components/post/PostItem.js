@@ -4,12 +4,10 @@ import styled from 'styled-components';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import {
-  getApiUrl,
+  getApiRoute,
   formatDate,
   toUpperCaseFirstChar,
 } from '../../utils/functions';
-
-const apiUrl = getApiUrl();
 
 Modal.setAppElement('#root');
 
@@ -33,7 +31,7 @@ const PostItem = ({ post, admin }) => {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     };
-    axios.delete(`${apiUrl}/api/post/${id}`, config).then((res) => {
+    axios.delete(getApiRoute(`/api/post/${id}`), config).then((res) => {
       history.push('/');
     });
   };

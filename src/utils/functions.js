@@ -1,7 +1,14 @@
+import path from 'path';
+
 export const getApiUrl = () => {
   return process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_API_URL
     : 'http://localhost:3000';
+};
+
+export const getApiRoute = (route) => {
+  const apiUrl = getApiUrl();
+  return path.resolve(apiUrl, route);
 };
 
 export const formatDate = (date) => {
@@ -15,10 +22,10 @@ export const toUpperCaseFirstChar = (string) => {
   return `${string[0].toUpperCase()}${string.slice(1, string.length)}`;
 };
 
-export const getCkeditorConfig = (apiUrl) => {
+export const getCkeditorConfig = () => {
   return {
     simpleUpload: {
-      uploadUrl: `${apiUrl}/api/image`,
+      uploadUrl: getApiRoute(`/api/image`),
     },
     toolbar: {
       items: [

@@ -5,9 +5,7 @@ import PostLoader from './PostLoader';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchPost from './SearchPost';
-import { getApiUrl } from '../../utils/functions';
-
-const apiUrl = getApiUrl();
+import { getApiRoute } from '../../utils/functions';
 
 const PostList = () => {
   const userContext = useContext(UserContext);
@@ -24,7 +22,7 @@ const PostList = () => {
       history.push('/login');
     }
 
-    axios.get(`${apiUrl}/api/post`).then((res) => {
+    axios.get(getApiRoute(`/api/post`)).then((res) => {
       if (mounted) {
         setPosts(res.data.data);
         setLoading(false);

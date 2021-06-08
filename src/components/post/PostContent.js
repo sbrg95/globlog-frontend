@@ -4,13 +4,11 @@ import axios from 'axios';
 import { Parser } from 'html-to-react';
 import { useParams } from 'react-router-dom';
 import {
-  getApiUrl,
+  getApiRoute,
   formatDate,
   toUpperCaseFirstChar,
 } from '../../utils/functions';
 import PostLoader from './PostLoader';
-
-const apiUrl = getApiUrl();
 
 const PostContent = () => {
   const [post, setPost] = useState({});
@@ -27,7 +25,7 @@ const PostContent = () => {
       },
     };
     axios
-      .get(`${apiUrl}/api/post/${id}`, config)
+      .get(getApiRoute(`/api/post/${id}`), config)
       .then((res) => {
         if (mounted) {
           setPost(res.data.data);

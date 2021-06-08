@@ -12,9 +12,7 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
 } from '../types';
-import { getApiUrl } from '../../utils/functions';
-
-const apiUrl = getApiUrl();
+import { getApiRoute } from '../../utils/functions';
 
 const UserState = (props) => {
   const initialState = {
@@ -37,7 +35,7 @@ const UserState = (props) => {
     }
 
     try {
-      const res = await axios.get(`${apiUrl}/api/user`);
+      const res = await axios.get(getApiRoute(`/api/user`));
       dispatch({
         type: USER_LOADED,
         payload: res.data.data,
@@ -56,7 +54,11 @@ const UserState = (props) => {
     };
 
     try {
-      const res = await axios.post(`${apiUrl}/auth/signup`, formData, config);
+      const res = await axios.post(
+        getApiRoute(`/auth/signup`),
+        formData,
+        config
+      );
 
       dispatch({
         type: REGISTER_SUCCESS,
@@ -82,7 +84,11 @@ const UserState = (props) => {
       },
     };
     try {
-      const res = await axios.post(`${apiUrl}/auth/signin`, formData, config);
+      const res = await axios.post(
+        getApiRoute(`/auth/signin`),
+        formData,
+        config
+      );
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data.token,

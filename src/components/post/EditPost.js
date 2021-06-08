@@ -8,9 +8,7 @@ import ClassicEditor from 'ckeditor5-sbrg95-custom-build';
 import Alert from '../layout/Alert';
 import PostLoader from './PostLoader';
 import { postValidation } from '../../utils/validation';
-import { getApiUrl, getCkeditorConfig } from '../../utils/functions';
-
-const apiUrl = getApiUrl();
+import { getApiRoute, getCkeditorConfig } from '../../utils/functions';
 
 const EditPost = () => {
   const userContext = useContext(UserContext);
@@ -33,7 +31,7 @@ const EditPost = () => {
       },
     };
     axios
-      .get(`${apiUrl}/api/post/${id}`, config)
+      .get(getApiRoute(`/api/post/${id}`), config)
       .then((res) => {
         if (mounted) {
           setTitle(res.data.data.title);
@@ -69,7 +67,7 @@ const EditPost = () => {
       };
       try {
         await axios.put(
-          `${apiUrl}/api/post/${id}`,
+          getApiRoute(`/api/post/${id}`),
           {
             title,
             description,
@@ -116,7 +114,7 @@ const EditPost = () => {
           <CKEditor
             editor={ClassicEditor}
             data={body}
-            config={getCkeditorConfig(apiUrl)}
+            config={getCkeditorConfig()}
             onChange={(event, editor) => {
               const data = editor.getData();
               setBody(data);
